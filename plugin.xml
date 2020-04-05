@@ -9,7 +9,7 @@
     <author>Sang Ki Kwon (Cranberrygame)</author>	
     <license>MIT</license>
     <keywords>cordova,plugin,game,google play game,game center</keywords>
-    <repo>https://github.com/cranberrygame/cordova-plugin-game</repo>
+    <repo>https://github.com/vdtdev/cordova-plugin-game</repo>
     <issue>https://github.com/cranberrygame/cordova-plugin-game/issues</issue>	
 	<engines>
 	    <engine name="cordova" version=">=3.0.0" />
@@ -71,7 +71,7 @@
 		<dependency id="cordova-plugin-extras-google-play-services" />		
 		<dependency id="cordova-plugin-extras-android-support-library-v4" />
 -->		
-		<dependency id="cordova-plugin-extras-google-play-services" url="https://github.com/cranberrygame/cordova-plugin-extras-google-play-services" />
+		<dependency id="cordova-plugin-extras-google-play-services" url="https://github.com/vdtdev/cordova-plugin-extras-google-play-services" />
     </platform>
 	
     <!-- ios -->

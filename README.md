@@ -1,6 +1,11 @@
 Cordova Game plugin
 ====================
 
+# (Fork)
+
+- Corrects issue caused by use of deprecated `GameRequest`
+- References altered version of `cordova-plugin-extras-google-play-services` that targets a specific library version to avoid incompatibility issues when targetting Android SDK 24+
+
 # Overview #
 Show leaderboard and achievements (google play game and game center, SDK)
  

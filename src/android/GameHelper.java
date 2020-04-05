@@ -42,7 +42,7 @@ import com.google.android.gms.games.GamesActivityResultCodes;
 import com.google.android.gms.games.multiplayer.Invitation;
 import com.google.android.gms.games.multiplayer.Multiplayer;
 import com.google.android.gms.games.multiplayer.turnbased.TurnBasedMatch;
-import com.google.android.gms.games.request.GameRequest;
+// import com.google.android.gms.games.request.GameRequest; //$vdtfix
 import com.google.android.gms.plus.Plus;
 import com.google.android.gms.plus.Plus.PlusOptions;
 
@@ -177,7 +177,7 @@ public class GameHelper implements GoogleApiClient.ConnectionCallbacks,
      * If we have incoming requests when we connected to the games client, they
      * are here. Otherwise, it's null.
      */
-    ArrayList<GameRequest> mRequests;
+    // ArrayList<GameRequest> mRequests; //$vdtfix
 
     // Listener
     GameHelperListener mListener = null;
@@ -468,7 +468,8 @@ public class GameHelper implements GoogleApiClient.ConnectionCallbacks,
     }
 
     public boolean hasRequests() {
-        return mRequests != null;
+        // return mRequests != null; //$vdtfix
+        return false;
     }
 
     public void clearInvitation() {
@@ -480,7 +481,7 @@ public class GameHelper implements GoogleApiClient.ConnectionCallbacks,
     }
 
     public void clearRequests() {
-        mRequests = null;
+        // mRequests = null; //$vdtfix
     }
 
     /**
@@ -509,14 +510,16 @@ public class GameHelper implements GoogleApiClient.ConnectionCallbacks,
      *                                            handled.
      * @return The requests, or null if none were received.
      */
-    public ArrayList<GameRequest> getRequests() {
-        if (!mGoogleApiClient.isConnected()) {
-            Log.w(TAG, "Warning: getRequests() should only be called "
-                    + "when signed in, "
-                    + "that is, after getting onSignInSuceeded()");
-        }
-        return mRequests;
-    }
+    //[$vdtfix]
+    // public ArrayList<GameRequest> getRequests() {
+    //     if (!mGoogleApiClient.isConnected()) {
+    //         Log.w(TAG, "Warning: getRequests() should only be called "
+    //                 + "when signed in, "
+    //                 + "that is, after getting onSignInSuceeded()");
+    //     }
+    //     return mRequests;
+    // }
+    //[/$vdtfix]
 
     /** Enables debug logging */
     public void enableDebugLog(boolean enabled) {
@@ -730,14 +733,16 @@ public class GameHelper implements GoogleApiClient.ConnectionCallbacks,
                 debugLog("Invitation ID: " + mInvitation.getInvitationId());
             }
 
+            //[$vdtfix]
             // Do we have any requests pending?
-            mRequests = Games.Requests
-                    .getGameRequestsFromBundle(connectionHint);
-            if (!mRequests.isEmpty()) {
-                // We have requests in onConnected's connectionHint.
-                debugLog("onConnected: connection hint has " + mRequests.size()
-                        + " request(s)");
-            }
+            // mRequests = Games.Requests
+            //         .getGameRequestsFromBundle(connectionHint);
+            // if (!mRequests.isEmpty()) {
+            //     // We have requests in onConnected's connectionHint.
+            //     debugLog("onConnected: connection hint has " + mRequests.size()
+            //             + " request(s)");
+            // }
+            //[/$vdtfix]
 
             debugLog("onConnected: connection hint provided. Checking for TBMP game.");
             mTurnBasedMatch = connectionHint
